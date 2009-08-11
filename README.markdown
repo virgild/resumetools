@@ -1,21 +1,26 @@
 ResumeTools
+===========
     http://github.com/virgild/resumetools
     by Virgil Dimaguila
 
-== DESCRIPTION:
+DESCRIPTION:
+------------
 
 ResumeTools is a set of classes and utilities for building resumes and generating
 resume documents.
 
-== DEPENDENCIES:
+DEPENDENCIES:
+-------------
 
-== INSTALLATION:
+INSTALLATION:
+-------------
 
 ResumeTools can be installed via rubygems:
 
     $ sudo gem install resumetools
 
-== CODE:
+CODE:
+-----
 
 The source code is available at:
 
@@ -25,13 +30,17 @@ To get the source code using git:
 
   $ git clone git://github.com/virgild/resumetools.git
 
-== USAGE:
+USAGE:
+------
 
-== EXAMPLES:
+EXAMPLES:
+---------
 
-== LIMITATIONS:
+LIMITATIONS:
+------------
 
-== LICENSE:
+LICENSE:
+--------
 
 (The MIT License)
 
