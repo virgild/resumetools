@@ -1,5 +1,5 @@
 ResumeTools
-    http://codex.roundysoft.com/resumetools
+    http://github.com/virgild/resumetools
     by Virgil Dimaguila
 
 == DESCRIPTION:
@@ -23,7 +23,7 @@ The source code is available at:
   
 To get the source code using git:
 
-  $ git clone git://github.com/roundysoft/resumetools.git
+  $ git clone git://github.com/virgild/resumetools.git
 
 == USAGE:
 
