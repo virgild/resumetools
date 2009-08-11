@@ -54,11 +54,6 @@ developing innovative solutions.
   processing (OLTP) monitor, and redundant array of inexpensive disks
   (RAID) technology.
 
-- Conducted extensive trade studies of a large number of vendors that offer 
-  leading-edge technologies; these studies identified proven (low-risk) 
-  implementations of SMP and RDBMS systems that met stringent performance 
-  and availability criteria.
-
 + Systems Analyst
 >O Business Consultants, Inc.
 >L Washington, DC
@@ -70,8 +65,6 @@ developing innovative solutions.
 - Consolidated and documented the Smithsonian Laboratory's Testing, 
   Demonstration, and Training databases onto a single server, maximizing
   the use of the laboratory's computing resources.
-
-- Brought the Smithsonian Laboratory on-line with the Internet.
 
 - Successfully integrated and delivered to Amnesty International an 
   $80,000 HP 9000/750 Server consisting of 8 Gigabytes of disk space
@@ -128,12 +121,6 @@ developing innovative solutions.
 
 - Transmission Control Protocol/Internet Protocol (TCP/IP);
   Technology Systems Institute.
-
-- LAN Interconnection Using Bridges, Routers, and Gateways; 
-  Information Systems Institute.
-
-- OSI X.400/X.500 Messaging and Directory Service Protocols; 
-  Communication Technologies, Inc.
 
 - US Army Signal Officer Advanced Course, US Army Signal Center, 
   Georgia; Honor Graduate.
