@@ -7,12 +7,49 @@ by Virgil Dimaguila
 DESCRIPTION:
 ------------
 
-ResumeTools is a set of simple classes and utilities for building resumes and generating
+ResumeTools is a set of simple classes and utilities for building basic resumes and generating
 resume documents.
 
 ### Structure of a Resume
 
-Hello world
+A `resume` is a document that has personal info, and a list of `sections`. The personal info
+has contact information like telephone number, e-mail address, and home address. Sections
+are the main divisions in the resume document (e.g., Objectives, Experience, Education).
+
+#### Header and Personal Info
+
+The resume header has the person's name and contact information. The header has the following
+properties:
+
+* `full_name`
+* `telephone`
+* `email`
+* `address1`
+* `address2`
+* `url`
+
+#### Sections
+
+Sections are the main divisions of a resume. Each section has a `title`, and can have
+the following properties:
+
+* List of `items`
+* List of `periods`
+* A `paragraph`
+
+#### Periods
+
+`Periods` are any information that has a date and a location. Each period has a `title`,
+and can have the following properties:
+
+* `organization`
+* `location`
+* `date started` and `date ended`
+* A list of `items`
+
+#### Items
+
+An item is simple text information that is part of a `items` list.
 
 
 DEPENDENCIES:
