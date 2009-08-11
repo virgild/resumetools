@@ -1,7 +1,7 @@
 ResumeTools
 ===========
-    http://github.com/virgild/resumetools
-    by Virgil Dimaguila
+http://github.com/virgild/resumetools
+by Virgil Dimaguila
 
 DESCRIPTION:
 ------------
@@ -9,8 +9,15 @@ DESCRIPTION:
 ResumeTools is a set of classes and utilities for building resumes and generating
 resume documents.
 
+
 DEPENDENCIES:
 -------------
+
+ResumeTools depends on the following Ruby gems:
+* extlib
+* prawn
+* treetop
+
 
 INSTALLATION:
 -------------
@@ -19,25 +26,43 @@ ResumeTools can be installed via rubygems:
 
     $ sudo gem install resumetools
 
+
 CODE:
 -----
 
 The source code is available at:
 
-  http://github.com/virgild/resumetools.git
+    http://github.com/virgild/resumetools.git
   
 To get the source code using git:
 
-  $ git clone git://github.com/virgild/resumetools.git
+    $ git clone git://github.com/virgild/resumetools.git
+
 
 USAGE:
 ------
 
+    # Create a resume
+    myresume = ResumeTools::Resume.new
+    myresume.full_name = "Albert Einstein"
+    myresume.telephone = "(555) 123-4567"
+    myresume.address1 = "221 Relativity Circle"
+    myresume.address2 = "Princeton, NJ"
+    myresume.email = "albert.einstein@science.org"
+    
+    # Add a section, "Career Goals"
+    myresume.create_section do |section|
+      section.title = "Career Goals"
+      section.para = "Work as a physicist and create a time machine"
+    end
+
 EXAMPLES:
 ---------
 
+
 LIMITATIONS:
 ------------
+
 
 LICENSE:
 --------
