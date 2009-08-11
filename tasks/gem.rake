@@ -15,8 +15,6 @@ namespace :gem do
     s.files = PKG_FILES.to_a
 
     s.has_rdoc = true
-    s.extra_rdoc_files = %w( README )
-    s.rdoc_options.concat ["--main",  "README"]
     
     s.required_ruby_version = ">= 1.8.6"
     
