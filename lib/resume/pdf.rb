@@ -40,7 +40,7 @@ module ResumeTools
         :section => 10,
         :para => 9,
         :item => 9,
-        :period => 12        
+        :period => 12
       }
       DATE_FORMAT = "%B, %Y"
       
@@ -67,14 +67,15 @@ module ResumeTools
         pdf.font("Helvetica", :style => :normal, :size => FONT_SIZES[:default], :kerning => true)
         
         # Name
-        pdf.text self.full_name, :style => :bold, :size => FONT_SIZES[:header]
+        pdf.text self.full_name, :style => :bold, :size => FONT_SIZES[:header], :align => :center
         
         # Contact info
-        pdf.text self.telephone if self.has_telephone?
-        pdf.text self.email if self.has_email?
-        pdf.text self.address1 if self.has_address1?
-        pdf.text self.address2 if self.has_address2?
-        pdf.text self.url if self.has_url?
+        pdf.text [self.address1, self.address2].join(", "), :align => :center
+        pdf.text [telephone, email].join(" • "), :align => :center
+        pdf.text url, :align => :center
+        
+        pdf.pad_bottom 20 do
+        end
         
         # Sections
         self.sections.each do |section|
@@ -116,7 +117,7 @@ module ResumeTools
                   detail_line << dates unless dates.blank?
                   
                   pdf.span(pdf.bounds.width - 10, :position => 10) do
-                    pdf.text(detail_line.join(", "), :size => FONT_SIZES[:default])
+                    pdf.text(detail_line.join(" • "), :size => FONT_SIZES[:default])
                   end
                   
                   # Period items
