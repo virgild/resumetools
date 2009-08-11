@@ -50,8 +50,8 @@ describe "Creating a resume from a text" do
     @resume.sections[3].should have(3).periods
   end
   
-  it "should have 4 items in the Systems Engineer period" do
-    @resume.sections[3].periods[0].should have(4).items
+  it "should have 3 items in the Systems Engineer period" do
+    @resume.sections[3].periods[0].should have(3).items
   end
   
   it "should have proper dates" do

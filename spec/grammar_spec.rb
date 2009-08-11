@@ -28,8 +28,8 @@ describe "Resume Grammar" do
       @result.should_not be_nil
     end
         
-    it "should have 33 items" do
-      elements_with_type(:item).length.should == 33
+    it "should have 29 items" do
+      elements_with_type(:item).length.should == 29
     end
     
     it "should have 2 paragraphs" do
