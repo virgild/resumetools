@@ -1,6 +1,7 @@
 ResumeTools
 ===========
-http://github.com/virgild/resumetools
+
+http://github.com/virgild/resumetools  
 by Virgil Dimaguila
 
 DESCRIPTION:
@@ -8,6 +9,10 @@ DESCRIPTION:
 
 ResumeTools is a set of simple classes and utilities for building resumes and generating
 resume documents.
+
+### Structure of a Resume
+
+Hello world
 
 
 DEPENDENCIES:
@@ -43,6 +48,8 @@ To get the source code using git:
 USAGE:
 ------
 
+Building a resume model
+
     require 'resumetools'
 
     # Create a resume
@@ -58,6 +65,7 @@ USAGE:
       section.title = "Career Goals"
       section.para = "Work as a physicist and create a time machine"
     end
+
 
 EXAMPLES:
 ---------

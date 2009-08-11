@@ -29,6 +29,7 @@ PKG_FILES = FileList[
   "vendor/**/*",
   "tasks/**/*",
   "[A-Z]*",
+  "README.md",
   "Rakefile"
 ].exclude(/[_\.]git$/, 'TODO')
 WINDOWS = (RUBY_PLATFORM =~ /mswin|win32|mingw|bccwin|cygwin/) rescue false
