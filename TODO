@@ -1,1 +1,4 @@
 * Handle unicode text
+* Customizable resume layout
+* Pluggable exporters
+* MS Word export
