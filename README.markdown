@@ -6,7 +6,7 @@ by Virgil Dimaguila
 DESCRIPTION:
 ------------
 
-ResumeTools is a set of classes and utilities for building resumes and generating
+ResumeTools is a set of simple classes and utilities for building resumes and generating
 resume documents.
 
 
@@ -42,6 +42,8 @@ To get the source code using git:
 USAGE:
 ------
 
+    require 'resumetools'
+
     # Create a resume
     myresume = ResumeTools::Resume.new
     myresume.full_name = "Albert Einstein"
@@ -59,6 +61,65 @@ USAGE:
 EXAMPLES:
 ---------
 
+Example of a resume text format:
+
+    #N Thomas B. Seeker
+    #A 1234 Northern Star Circle
+    #A Baltimore, MD 12345
+    #T (410) 555-1212
+    #E seeker@nettcom.com
+    #U http://nettcom.com/tseeker
+  
+    = Qualifications Summary
+    ---
+    Nine years of experience in designing, installing, and troubleshooting 
+    computing systems; a proven track record in identifying problems and 
+    developing innovative solutions.
+    ---
+    
+    = Technical Skills
+
+    - PROGRAMMING: C, C++, Visual BASIC, FORTRAN, Pascal, SQL, OSF/Motif, 
+      UNIX Shell Script (sh, ksh, csh), BASIC, Clipper, Algol 68, and 80X86 Assembler.
+
+    - OPERATING SYSTEMS: UNIX (bsd & SVr3/r4), MS Windows, MS DOS, MS Windows NT, 
+      Solaris, HP-UX, Ultrix, AIX, VAX/VMS, and Macintosh System 7.
+
+    = Professional Experience
+    
+    + Systems Engineer
+    >O Computer Engineering Corporation
+    >L Los Angeles, CA
+    >D 1993 to Present
+    - Provide systems engineering, software engineering, technical consulting, and 
+      marketing services as a member of the Systems Integration Division of a 
+      software engineering consulting company.
+  
+    + Systems Analyst
+    >O Business Consultants, Inc.
+    >L Washington, DC
+    >D 1990 to 1993
+    - Provided technical consulting services to the Smithsonian Institute's 
+      Information Technology Services Group, Amnesty International, and
+      internal research and development initiatives.
+    
+    = Education
+
+    + Computer Systems Technology Program
+    >O Air Force Institute of Technology (AFIT)
+
+    + BS, Mathematics/Computer Science
+    >O University of California, Los Angeles (UCLA)
+    
+    = Specialized Training
+
+    - Database Administration, Performance Tuning, and Benchmarking with 
+      Oracle7; Oracle Corporation.
+    - Software Requirements Engineering and Management Course; 
+      Computer Applications International Corporation.
+    - X.400 Messaging and Allied Communications Procedures-123 Profile;
+      ComTechnologies, Inc.  
+    
 
 LIMITATIONS:
 ------------
