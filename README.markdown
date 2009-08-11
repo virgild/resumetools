@@ -118,7 +118,10 @@ Example of a resume text format:
     - Software Requirements Engineering and Management Course; 
       Computer Applications International Corporation.
     - X.400 Messaging and Allied Communications Procedures-123 Profile;
-      ComTechnologies, Inc.  
+      ComTechnologies, Inc.
+
+See the `examples` directory for a sample resume text and its generated
+PDF document.
     
 
 LIMITATIONS:
