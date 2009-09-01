@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), "spec_helper")
 require "treetop"
 
-Treetop.load File.join(File.dirname(__FILE__), "../lib/grammars/resume.treetop")
+Treetop.load File.join(File.dirname(__FILE__), "../lib/resumetools/grammars/resume.treetop")
 
 describe "Resume Grammar" do
   before(:all) do
