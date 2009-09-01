@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{resumetools}
-  s.version = "0.2.2"
+  s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Virgil Dimaguila"]
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = %q{Resume generation and writing tools
 }
   s.email = %q{virgil@roundysoft.com}
-  s.files = ["examples/sample.pdf", "examples/sample.resume", "lib/resumetools", "lib/resumetools/grammars", "lib/resumetools/grammars/resume.treetop", "lib/resumetools/resume", "lib/resumetools/resume/pdf.rb", "lib/resumetools/resume/resume.rb", "lib/resumetools/resume/text_reader.rb", "lib/resumetools/version.rb", "lib/resumetools.rb", "spec/grammar_spec.rb", "spec/read_resume_spec.rb", "spec/rendering_pdf_spec.rb", "spec/resume_spec.rb", "spec/spec.opts", "spec/spec_helper.rb", "tasks/default.rake", "tasks/gem.rake", "tasks/package.rake", "tasks/rdoc.rake", "tasks/rspec.rake", "CHANGES", "LICENSE", "Rakefile", "README.md"]
+  s.files = ["examples/sample.pdf", "examples/sample.resume", "lib/resumetools", "lib/resumetools/grammars", "lib/resumetools/grammars/resume.treetop", "lib/resumetools/resume", "lib/resumetools/resume/pdf.rb", "lib/resumetools/resume/resume.rb", "lib/resumetools/resume/text_reader.rb", "lib/resumetools/version.rb", "lib/resumetools.rb", "spec/grammar_spec.rb", "spec/read_resume_spec.rb", "spec/rendering_pdf_spec.rb", "spec/resume_spec.rb", "spec/spec.opts", "spec/spec_helper.rb", "tasks/default.rake", "tasks/gem.rake", "tasks/package.rake", "tasks/rdoc.rake", "tasks/rspec.rake", "fonts/Vera.ttf", "fonts/VeraBd.ttf", "fonts/VeraBI.ttf", "fonts/VeraIt.ttf", "CHANGES", "LICENSE", "Rakefile", "README.md"]
   s.homepage = %q{http://virgild.github.com/resumetools}
   s.require_paths = ["lib"]
   s.required_ruby_version = Gem::Requirement.new(">= 1.8.6")

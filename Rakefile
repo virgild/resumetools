@@ -28,6 +28,7 @@ PKG_FILES = FileList[
   "spec/**/*",
   "vendor/**/*",
   "tasks/**/*",
+  "fonts/**/*",
   "[A-Z]*",
   "README.md",
   "Rakefile"
