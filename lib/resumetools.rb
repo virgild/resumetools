@@ -23,8 +23,6 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #++
 
-$:.unshift(File.dirname(__FILE__))
-
 require "extlib"
 require "uuidtools"
 
