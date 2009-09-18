@@ -27,8 +27,7 @@ require File.join(File.dirname(__FILE__), "spec_helper")
 
 
 def resume_attributes
-  { :name => "Physicist Resume",
-    :title => "Physicist - 30+ yrs experience",
+  { 
     :full_name => "Albert Einstein",
     :url => "http://phys6.science.org/einstein",
     :email => "albert.einstein@science.org",
@@ -65,15 +64,13 @@ describe "Resume" do
   
   it "has initial properties after creation" do
     @resume = ResumeTools::Resume.new
-    @resume.name.should == "Unnamed Resume"
-    @resume.title.should be_blank
     @resume.full_name.should be_blank
     @resume.has_url?.should be_false
     @resume.has_email?.should be_false
     @resume.has_telephone?.should be_false
     @resume.has_address1?.should be_false
     @resume.has_address2?.should be_false
-    @resume.should have(0).sections
+    @resume.has_sections?.should be_false
   end
   
   it "is created with hash properties" do
@@ -84,8 +81,6 @@ describe "Resume" do
     @resume.has_address1?.should be_true
     @resume.has_address2?.should be_true
     
-    @resume.name.should == @attributes[:name]
-    @resume.title.should == @attributes[:title]
     @resume.full_name.should == @attributes[:full_name]
     @resume.url.should == @attributes[:url]
     @resume.telephone.should == @attributes[:telephone]
@@ -110,6 +105,7 @@ describe "Section" do
     end
     
     @resume.should have(1).sections
+    @resume.has_sections?.should be_true
     section = @resume.sections[0]
     section.title.should == @attributes[:title]
     section.para.should == @attributes[:para]
@@ -118,7 +114,14 @@ describe "Section" do
   it "should have no items" do
     section = ResumeTools::Section.new
     section.should have(0).items
+    section.has_items?.should be_false
   end
+  
+  it "should have no periods" do
+    section = ResumeTools::Section.new
+    section.has_periods?.should be_false    
+  end
+  
   
   it "should be able to add items" do
     section = ResumeTools::Section.new
@@ -130,6 +133,7 @@ describe "Section" do
     section.should have(2).items
     section.items[0].text.should == "This is item A."
     section.items[1].text.should == "This is item B."
+    section.has_items?.should be_true
   end
   
   it "is created in the right order" do

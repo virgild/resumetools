@@ -28,13 +28,7 @@ module ResumeTools
   # = Resume
   # Represents a single resume document
   class Resume
-    
-    # The title of the resume
-    attr_accessor :title
-    
-    # The name (or label) for this resume
-    attr_accessor :name
-    
+        
     # The full name of the subject of this resume
     attr_accessor :full_name
     
@@ -57,16 +51,14 @@ module ResumeTools
     attr_reader :sections
     
     # Creates a +Resume+ and passes it to the given block. Returns the created +Resume+.
-    def self.build(&block)
-      resume = self.new
-      yield resume
+    def self.build(opts={}, &block)
+      resume = self.new(opts)
+      block.call(resume)
       resume
     end
     
     # Creates a new +Resume+ with the given properties
     def initialize(props={})
-      @title = props[:title] || ""
-      @name = props[:name] || "Unnamed Resume"
       @full_name = props[:full_name] || ""
       @url = props[:url] || ""
       @email = props[:email] || ""
@@ -115,7 +107,12 @@ module ResumeTools
       !self.address2.blank?
     end
     
-  end
+    #
+    def has_sections?
+      !self.sections.empty?      
+    end
+    
+  end #class Resume
   
   
   # = Section
@@ -139,6 +136,31 @@ module ResumeTools
       @para = props[:para] || ""
       @items = Array.new
       @periods = Array.new
+    end
+    
+    #
+    def has_paragraph?
+      !self.para.blank?
+    end
+    
+    def has_para?
+      self.has_paragraph?
+    end
+    
+    #
+    def has_items?
+      !self.items.empty?
+    end
+    
+    #
+    def has_periods?
+      !self.periods.empty?
+    end
+    
+    #
+    def has_title?
+      !self.title.blank?
+      
     end
 
     # Creates a period and adds it to the list
@@ -200,6 +222,31 @@ module ResumeTools
       @items = Array.new
     end
     
+    #
+    def has_title?
+      !self.title.blank?
+    end
+    
+    def has_location?
+      !self.location.blank?
+    end
+    
+    def has_organization?
+      !self.organization.blank?
+    end
+    
+    def has_dtstart?
+      !self.dtstart.blank?
+    end
+    
+    def has_dtend?
+      !self.dtend.blank?
+    end
+    
+    def has_items?
+      !self.items.empty?
+    end
+    
     # Adds an item
     def add_item(item)
       self.items << item
@@ -211,6 +258,22 @@ module ResumeTools
       yield item if block_given?
       self.add_item(item)
       item
+    end
+    
+    # The period details in a single line
+    def line
+      elements = Array.new
+      elements << self.organization if self.has_organization?
+      elements << self.location if self.has_location?
+      if self.has_dtstart? && self.has_dtend?
+        date = " (#{self.dtstart}) - #{self.dtend})"
+      elsif self.has_dtstart? || self.has_dtend?
+        value = self.has_dtstart? ? self.dtstart : self.dtend
+        date = " (#{value})"
+      else
+        date = ''
+      end
+      elements.join(", ").concat("#{date}")
     end
   end
   

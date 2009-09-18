@@ -26,7 +26,10 @@
 require "extlib"
 require "uuidtools"
 
+$:.unshift File.dirname(__FILE__)
+
 require "resumetools/version"
 require "resumetools/resume/resume"
 require "resumetools/resume/text_reader"
 require "resumetools/resume/pdf"
+require "resumetools/resume/plain_text"

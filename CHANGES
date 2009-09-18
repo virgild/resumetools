@@ -1,2 +1,6 @@
+2009-09-17 (Version 0.2.4)
+* Added property helpers to ResumeTools::Resume
+* Added plain text renderer (ResumeTools::Resume#render_plain_text)
+
 2009-09-01
 * Path cleanup
