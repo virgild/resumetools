@@ -23,14 +23,15 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #++
 
+require "prawn"
+require "prawn/format"
+require "prawn/layout"
+require "prawn/measurement_extensions"
+
 module ResumeTools
   module Renderer
     module PDF
-      require "prawn"
-      require "prawn/format"
-      require "prawn/layout"
-      require "prawn/measurement_extensions"
-      
+            
       FONT_DIR = File.join(File.dirname(__FILE__), '..', '..', 'fonts')
       MARGINS = [1.0, 1.0, 1.0, 1.0]
       FONT_SIZES = {
@@ -133,21 +134,11 @@ module ResumeTools
         
         pdf.render
       end
-      
-      private
-      def print_date(dtstart, dtend)
-        if dtstart && dtend
-          dtstart + " - " + dtend
-        elsif dtstart && dtend.nil?
-          dtstart.strftime(DATE_FORMAT)
-        else
-          ""
-        end
-      end
-    end
-  end
+
+    end #module PDF
+  end #module Renderer
   
   Resume.class_eval do
     include Renderer::PDF
   end
-end
+end #module ResumeTools
