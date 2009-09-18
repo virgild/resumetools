@@ -8,21 +8,27 @@ module ResumeTools
       end
       
       def render(opts={})
-        @item_bullet = "-"
-        @header_filler = "-"
-        @newline = "\n"
+        @opts = {
+          :item_bullet => '-',
+          :header_filler => '-',
+          :newline => "\n",
+          :first_indent => 0,
+          :columns => 80,
+          :indent => 2,
+          :centered_top => true,
+          :lined_headers => true
+        }
+        @opts.merge!(opts)
         @format = Text::Format.new
-        @format.first_indent = 0
-        @format.columns = 80
-        @indent = 2
-        @lined_headers = true
+        @format.first_indent = @opts[:first_indent]
+        @format.columns = @opts[:columns]
         
-        center @resume.full_name
-        center @resume.address1
-        center @resume.address2
-        center @resume.telephone
-        center @resume.email
-        center @resume.url
+        top_line @resume.full_name unless @resume.full_name.blank?
+        top_line @resume.address1 if @resume.has_address1?
+        top_line @resume.address2 if @resume.has_address2?
+        top_line @resume.telephone if @resume.has_telephone?
+        top_line @resume.email if @resume.has_email?
+        top_line @resume.url if @resume.has_url?
         blank_line
 
         @resume.sections.each_with_index do |section, n|
@@ -53,6 +59,14 @@ module ResumeTools
         end
       end
       
+      def top_line(text)
+        if @opts[:centered_top]
+          center text
+        else
+          add_line text
+        end
+      end
+      
       def render_period(period)
         add_line(period.title) if period.title
         add_line period.line
@@ -69,7 +83,7 @@ module ResumeTools
       end
       
       def render_item(item)
-        add_line "#{@item_bullet} " + item.text
+        add_line "#{@opts[:item_bullet]} " + item.text
       end
       
       def render_paragraph(para)
@@ -85,21 +99,21 @@ module ResumeTools
       end
       
       def center(line)
-        line = @newline if line.nil?
-        content << @format.center(line)        
+        line = @opts[:newline] if line.nil?
+        content << @format.center(line)
       end
       
       def add_line(line="")
-        line = @newline if line.nil?
+        line = @opts[:newline] if line.nil?
         content << @format.format(line)
       end
       
       def blank_line
-        content << @newline
+        content << @opts[:newline]
       end
       
       def push_margin(cols=0, &block)
-        cols = @indent if (cols == 0)
+        cols = @opts[:indent] if (cols == 0)
         previous_margin = @format.left_margin
         @format.left_margin = @format.left_margin + cols
         block.call
@@ -108,7 +122,8 @@ module ResumeTools
       
       def header(text)
         add_line(text)
-        add_line(@header_filler * text.length) if @lined_headers
+        add_line(@opts[:header_filler] * text.length) if @opts[:lined_headers]
+        blank_line
       end
     end #class PlainText
     
