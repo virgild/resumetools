@@ -70,9 +70,9 @@ module ResumeTools
         pdf.text self.full_name, :style => :bold, :size => FONT_SIZES[:header], :align => :center
         
         # Contact info
-        pdf.text [self.address1, self.address2].join(", "), :align => :center
-        pdf.text [telephone, email].join(" • "), :align => :center
-        pdf.text url, :align => :center
+        self.header_lines.each do |line|
+          pdf.text line, :align => :center
+        end
         
         pdf.pad_bottom 20 do
         end
@@ -110,14 +110,8 @@ module ResumeTools
                   pdf.pad_top(5) { pdf.text period.title, :style => :bold, :size => FONT_SIZES[:period] }
                   
                   # Period details
-                  detail_line = []
-                  dates = print_date(period.dtstart, period.dtend)
-                  detail_line << period.organization unless period.organization.blank?
-                  detail_line << period.location unless period.location.blank?
-                  detail_line << dates unless dates.blank?
-                  
                   pdf.span(pdf.bounds.width - 10, :position => 10) do
-                    pdf.text(detail_line.join(" • "), :size => FONT_SIZES[:default])
+                    pdf.text(period.line, :size => FONT_SIZES[:default])
                   end
                   
                   # Period items

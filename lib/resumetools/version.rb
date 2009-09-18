@@ -29,7 +29,7 @@ unless defined? ResumeTools::VERSION
       MAJOR = 0
       MINOR = 2
       TINY  = 4
-      BITSY = 1
+      BITSY = 2
       STRING = [MAJOR, MINOR, TINY, BITSY].join('.')
     end
   end

@@ -77,7 +77,7 @@ module ResumeTools
     # Create new section and add to sections
     def create_section(props={}, &block)
       section = Section.new(props)
-      yield section if block_given?
+      block.call(section) if block
       self.add_section(section)      
       self
     end
@@ -110,6 +110,17 @@ module ResumeTools
     #
     def has_sections?
       !self.sections.empty?      
+    end
+    
+    # Returns an array of lines that has the contact info
+    def header_lines
+      elements = []
+      [:address1, :address2, :telephone, :email, :url].each do |element|
+        elements << self.send(element) unless self.send(element).blank?
+      end
+      lines = []
+      elements.each_slice(2) { |pair| lines << pair.join(" • ") }
+      lines
     end
     
   end #class Resume
@@ -166,7 +177,7 @@ module ResumeTools
     # Creates a period and adds it to the list
     def create_period(props={}, &block)
       period = Period.new(props)
-      yield period if block_given?
+      block.call(period) if block
       self.add_period(period)
       self
     end
@@ -184,7 +195,7 @@ module ResumeTools
     # Creates an item and adds it to the list
     def create_item(props={}, &block)
       item = Item.new(props)
-      yield item if block_given?
+      block.call(item) if block
       self.add_item(item)
       self
     end
@@ -255,18 +266,18 @@ module ResumeTools
     # Creates an item and adds it to the list
     def create_item(props={}, &block)
       item = Item.new(props)
-      yield item if block_given?
+      block.call(item) if block
       self.add_item(item)
       item
     end
     
     # The period details in a single line
     def line
-      elements = Array.new
+      elements = []
       elements << self.organization if self.has_organization?
       elements << self.location if self.has_location?
       if self.has_dtstart? && self.has_dtend?
-        date = " (#{self.dtstart}) - #{self.dtend})"
+        date = " (#{self.dtstart} - #{self.dtend})"
       elsif self.has_dtstart? || self.has_dtend?
         value = self.has_dtstart? ? self.dtstart : self.dtend
         date = " (#{value})"
