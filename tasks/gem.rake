@@ -24,6 +24,7 @@ namespace :gem do
     s.add_runtime_dependency("extlib")
     s.add_runtime_dependency("prawn", ">= 0.5.0")
     s.add_runtime_dependency("treetop", ">= 1.3.0")
+    s.add_runtime_dependency("text-format", "1.0.0")
 
     s.require_path = "lib"
 
