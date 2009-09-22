@@ -27,14 +27,16 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<extlib>, [">= 0"])
       s.add_runtime_dependency(%q<prawn>, [">= 0.5.0"])
       s.add_runtime_dependency(%q<treetop>, [">= 1.3.0"])
-      s.add_runtime_dependency(%q<text-format>, ["= 1.0.0"])
+      s.add_runtime_dependency(%q<text-format>, [">= 1.0.0"])
+      s.add_runtime_dependency(%q<json>, [">= 1.1.9"])
     else
       s.add_dependency(%q<rake>, [">= 0.8.7"])
       s.add_dependency(%q<rspec>, [">= 1.2.8"])
       s.add_dependency(%q<extlib>, [">= 0"])
       s.add_dependency(%q<prawn>, [">= 0.5.0"])
       s.add_dependency(%q<treetop>, [">= 1.3.0"])
-      s.add_dependency(%q<text-format>, ["= 1.0.0"])
+      s.add_dependency(%q<text-format>, [">= 1.0.0"])
+      s.add_dependency(%q<json>, [">= 1.1.9"])
     end
   else
     s.add_dependency(%q<rake>, [">= 0.8.7"])
@@ -42,6 +44,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<extlib>, [">= 0"])
     s.add_dependency(%q<prawn>, [">= 0.5.0"])
     s.add_dependency(%q<treetop>, [">= 1.3.0"])
-    s.add_dependency(%q<text-format>, ["= 1.0.0"])
+    s.add_dependency(%q<text-format>, [">= 1.0.0"])
+    s.add_dependency(%q<json>, [">= 1.1.9"])
   end
 end
