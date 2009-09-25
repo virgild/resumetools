@@ -21,7 +21,6 @@ namespace :gem do
     s.add_development_dependency("rake", ">= 0.8.7")
     s.add_development_dependency("rspec", ">= 1.2.8")
    
-    s.add_runtime_dependency("rubygems")
     s.add_runtime_dependency("extlib")
     s.add_runtime_dependency("prawn", ">= 0.5.1")
     s.add_runtime_dependency("treetop", ">= 1.3.0")
