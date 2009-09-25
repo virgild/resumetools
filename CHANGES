@@ -1,3 +1,6 @@
+2009-09-25 (Version 0.2.5.1)
+* Bumped prawn dependency to 0.5.1
+
 2009-09-17 (Version 0.2.4)
 * Added property helpers to ResumeTools::Resume
 * Added plain text renderer (ResumeTools::Resume#render_plain_text)

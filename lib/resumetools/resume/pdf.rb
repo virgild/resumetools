@@ -23,6 +23,21 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #++
 
+gems = [
+  ['prawn', '>= 0.5.1'],
+  ['prawn-core', '>= 0.5.1'],
+  ['prawn-layout', '>= 0.2.1'],
+  ['prawn-format', '>= 0.2.1']
+]
+
+gems.each do |name, version|
+  if version
+    gem name, version
+  else
+    gem name
+  end
+end
+
 require "prawn"
 require "prawn/format"
 require "prawn/layout"
