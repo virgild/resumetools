@@ -1,3 +1,6 @@
+2009-09-30 (Version 0.2.7)
+* Added encodings for Ruby 1.9 compatibility
+
 2009-09-29 (Version 0.2.6)
 * Added text exporter
 

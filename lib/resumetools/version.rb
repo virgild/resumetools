@@ -28,7 +28,7 @@ unless defined? ResumeTools::VERSION
     module VERSION
       MAJOR = 0
       MINOR = 2
-      TINY  = 6
+      TINY  = 7
       BITSY = 0
       STRING = [MAJOR, MINOR, TINY, BITSY].join('.')
     end
