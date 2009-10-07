@@ -31,7 +31,8 @@ namespace :gem do
 
     s.author = "Virgil Dimaguila"
     s.email = "virgil@roundysoft.com"
-    s.homepage = "http://virgild.github.com/resumetools"
+    s.homepage = "http://codaset.com/virgil/resumetools"
+    s.rubyforge_project = "resumetools"
   end
 
   Rake::GemPackageTask.new(GEM_SPEC) do |p|

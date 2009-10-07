@@ -6,14 +6,15 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Virgil Dimaguila"]
-  s.date = %q{2009-09-30}
+  s.date = %q{2009-10-07}
   s.description = %q{Resume generation and writing tools
 }
   s.email = %q{virgil@roundysoft.com}
   s.files = ["examples/sample.pdf", "examples/sample.resume", "lib/fonts", "lib/fonts/Vera.ttf", "lib/fonts/VeraBd.ttf", "lib/fonts/VeraBI.ttf", "lib/fonts/VeraIt.ttf", "lib/resumetools", "lib/resumetools/grammars", "lib/resumetools/grammars/resume.treetop", "lib/resumetools/resume", "lib/resumetools/resume/export.rb", "lib/resumetools/resume/json.rb", "lib/resumetools/resume/pdf.rb", "lib/resumetools/resume/plain_text.rb", "lib/resumetools/resume/resume.rb", "lib/resumetools/resume/text_reader.rb", "lib/resumetools/version.rb", "lib/resumetools.rb", "spec/grammar_spec.rb", "spec/read_resume_spec.rb", "spec/rendering_pdf_spec.rb", "spec/resume_spec.rb", "spec/spec.opts", "spec/spec_helper.rb", "tasks/default.rake", "tasks/gem.rake", "tasks/package.rake", "tasks/rdoc.rake", "tasks/rspec.rake", "CHANGES", "LICENSE", "Rakefile", "README.md"]
-  s.homepage = %q{http://virgild.github.com/resumetools}
+  s.homepage = %q{http://codaset.com/virgil/resumetools}
   s.require_paths = ["lib"]
   s.required_ruby_version = Gem::Requirement.new(">= 1.8.6")
+  s.rubyforge_project = %q{resumetools}
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Resume generation and writing tools}
 
