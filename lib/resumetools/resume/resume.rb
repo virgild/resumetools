@@ -117,11 +117,12 @@ module ResumeTools
     # Returns an array of lines that has the contact info
     def header_lines
       elements = []
-      [:address1, :address2, :telephone, :email, :url].each do |element|
+      [:address1, :address2, :telephone, :email].each do |element|
         elements << self.send(element) unless self.send(element).blank?
       end
       lines = []
       elements.each_slice(2) { |pair| lines << pair.join(" • ") }
+      lines << self.url unless self.url.blank?
       lines
     end
     
