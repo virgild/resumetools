@@ -1,8 +1,7 @@
 ResumeTools
 ===========
 
-http://github.com/virgild/resumetools  
-by Virgil Dimaguila
+http://codaset.com/virgil/resumetools
 
 DESCRIPTION:
 ------------
@@ -75,11 +74,11 @@ CODE:
 
 The source code is available at:
 
-    http://github.com/virgild/resumetools.git
+    http://codaset.com/virgil/resumetools
   
 To get the source code using git:
 
-    $ git clone git://github.com/virgild/resumetools.git
+    $ git clone git://codaset.com/virgil/resumetools.git
 
 
 USAGE:
