@@ -23,7 +23,6 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #++
 
-require "text/format"
 require "prawn"
 require "prawn/format"
 require "prawn/layout"
@@ -33,10 +32,10 @@ require "uuidtools"
 require "json"
 require "treetop"
 
-require "resumetools/version"
-require "resumetools/resume/resume"
-require "resumetools/resume/text_reader"
-require "resumetools/resume/pdf"
-require "resumetools/resume/plain_text"
-require "resumetools/resume/json"
-require "resumetools/resume/export"
+require File.expand_path(File.dirname(__FILE__) + "/resumetools/version")
+require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/resume")
+require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/text_reader")
+require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/pdf")
+require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/plain_text")
+require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/json")
+require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/export")

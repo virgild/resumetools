@@ -1,3 +1,5 @@
+require File.join(File.dirname(__FILE__), "..", "..", "text", "format")
+
 module ResumeTools
   module Renderer
     class PlainText
@@ -17,7 +19,7 @@ module ResumeTools
           :lined_headers => true
         }
         @opts.merge!(opts)
-        @format = Text::Format.new
+        @format = ::Text::Format.new
         @format.first_indent = @opts[:first_indent]
         @format.columns = @opts[:columns]
         
