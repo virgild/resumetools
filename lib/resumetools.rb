@@ -23,10 +23,15 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #++
 
+require "text/format"
+require "prawn"
+require "prawn/format"
+require "prawn/layout"
+require "prawn/measurement_extensions"
 require "extlib"
 require "uuidtools"
-
-$:.unshift File.dirname(__FILE__)
+require "json"
+require "treetop"
 
 require "resumetools/version"
 require "resumetools/resume/resume"

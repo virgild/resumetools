@@ -1,5 +1,3 @@
-require 'text/format'
-
 module ResumeTools
   module Renderer
     class PlainText

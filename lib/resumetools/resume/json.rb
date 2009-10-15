@@ -1,5 +1,3 @@
-require 'json/pure'
-
 module ResumeTools
   module Renderer
     class JSON

@@ -25,12 +25,6 @@
 
 unless defined? ResumeTools::VERSION
   module ResumeTools
-    module VERSION
-      MAJOR = 0
-      MINOR = 2
-      TINY  = 7
-      BITSY = 1
-      STRING = [MAJOR, MINOR, TINY, BITSY].join('.')
-    end
+    VERSION = "0.2.7.1"
   end
 end

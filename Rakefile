@@ -14,7 +14,7 @@ require File.join(File.dirname(__FILE__), 'lib', 'resumetools', 'version')
 
 PKG_DISPLAY_NAME      = "ResumeTools"
 PKG_NAME              = PKG_DISPLAY_NAME.downcase
-PKG_VERSION           = ResumeTools::VERSION::STRING
+PKG_VERSION           = ResumeTools::VERSION
 PKG_FILE_NAME         = "#{PKG_NAME}-#{PKG_VERSION}"
 RELEASE_NAME          = "REL #{PKG_VERSION}"
 PKG_SUMMARY           = "Resume generation and writing tools"
