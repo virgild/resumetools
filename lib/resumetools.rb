@@ -32,7 +32,10 @@ require "uuidtools"
 require "json"
 require "treetop"
 
-require File.expand_path(File.dirname(__FILE__) + "/text/format")
+unless defined?(Text::Format)
+  require File.expand_path(File.dirname(__FILE__) + "/text/format")
+end
+
 require File.expand_path(File.dirname(__FILE__) + "/resumetools/version")
 require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/resume")
 require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/text_reader")
