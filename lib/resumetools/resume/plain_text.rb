@@ -1,5 +1,3 @@
-require File.join(File.dirname(__FILE__), "..", "..", "text", "format")
-
 module ResumeTools
   module Renderer
     class PlainText

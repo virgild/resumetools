@@ -32,6 +32,7 @@ require "uuidtools"
 require "json"
 require "treetop"
 
+require File.expand_path(File.dirname(__FILE__) + "/text/format")
 require File.expand_path(File.dirname(__FILE__) + "/resumetools/version")
 require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/resume")
 require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/text_reader")
@@ -39,3 +40,4 @@ require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/pdf")
 require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/plain_text")
 require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/json")
 require File.expand_path(File.dirname(__FILE__) + "/resumetools/resume/export")
+
