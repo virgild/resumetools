@@ -1,389 +1,391 @@
-grammar Resume
+module ResumeTools
+  grammar ResumeGrammar
 
-  rule document
-    ((contact_data / section / period / period_data / item / para / data) / LF)*
-  end
-  
-  rule period_data
-    period_org / period_loc / period_dates / period_detail
-  end
-  
-  rule period_org
-    period_detail_marker "O" whitespace content:text LF+ {
-      def data_type
-        :period_organization
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Organization: " + value
-      end
-    }
-  end
-  
-  rule period_loc
-    period_detail_marker "L" whitespace content:text LF+ {
-      def data_type
-        :period_location
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Location: " + value
-      end
-    }
-  end
-  
-  rule period_dates
-    period_detail_marker "D" whitespace content:text LF+ {
-      def data_type
-        :period_dates
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Dates: " + value
-      end
-    }
-  end
-  
-  rule contact_data
-    contact_name / contact_telephone / contact_email / contact_address / 
-    contact_url / contact_detail
-  end
-  
-  rule contact_url
-    contact_marker "U" whitespace content:text LF+ {
-      def data_type
-        :contact_url
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Contact URL: " + value
-      end
-    }
-  end
-  
-  rule contact_address
-    contact_marker "A" whitespace content:text LF+ {
-      def data_type
-        :contact_address
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Contact address: " + value
-      end
-    }
-  end
-  
-  rule contact_telephone
-    contact_marker "T" whitespace content:text LF+ {
-      def data_type
-        :contact_telephone
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Contact telephone: " + value
-      end
-    }
-  end
-  
-  rule contact_email
-    contact_marker "E" whitespace content:text LF+ {
-      def data_type
-        :contact_email
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Contact e-mail: " + value
-      end
-    }
-  end
+    rule document
+      ((contact_data / section / period / period_data / item / para / data) / LF)*
+    end
 
-  rule contact_telephone
-    contact_marker "T" whitespace content:text LF+ {
-      def data_type
-        :contact_telephone
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Contact telephone: " + value
-      end
-    }
-  end
-  
-  rule contact_name
-    contact_marker "N" whitespace content:text LF+ {
-      def data_type
-        :contact_name
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Contact name: " + value
-      end
-    }
-  end
-  
-  rule item
-    item_marker whitespace content:(item_data+) {
-      def data_type
-        :item
-      end
-      
-      def value
-        content.text_value.gsub("\n", ' ').gsub("\t", ' ').squeeze(" ").strip
-      end
-      
-      def inspect
-        "Item: " + value[0..100]
-      end
-    }
-  end
-  
-  rule item_data
-    continuation content:text LF+ {
-      def inspect
-        content.text_value
-      end
-    }
-  end
-  
-  rule continuation
-    [^-=>#+\n]
-  end
-  
-  rule period_detail
-    period_detail_marker whitespace content:text LF+ {
-      def data_type
-        :period_detail
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Detail: " + value
-      end
-    }
-  end
-  
-  rule period
-    period_marker whitespace content:text LF {
-      def data_type
-        :period
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Period: " + value
-      end
-    }
-  end
-  
-  rule para
-    para_marker LF
-    content:(!("---") text LF)*
-    para_marker LF+ {
-      def data_type
-        :paragraph
-      end
-      
-      def value
-        content.text_value.gsub(/\n/, ' ').squeeze(" ").strip
-      end
-      
-      def inspect
-        "Paragraph: " + value[0..100]
-      end
-    }
-  end
+    rule period_data
+      period_org / period_loc / period_dates / period_detail
+    end
 
-  rule section
-    section_marker whitespace content:text LF+ {
-      def data_type
-        :section
-      end
-      
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Section: " + elements[2].text_value
-      end
-    }
-  end
+    rule period_org
+      period_detail_marker "O" whitespace content:text LF+ {
+        def data_type
+          :period_organization
+        end
 
-  rule contact_detail
-    contact_marker whitespace content:text LF {
-      def data_type
-        :contact_detail
-      end
-      def value
-        content.text_value.squeeze(" ").strip
-      end
-      
-      def inspect
-        "Contact detail: " + value
-      end
-    }
-  end
-  
-  rule data
-    content:(text) LF {
-      def data_type
-        :untyped
-      end
-      
-      def value
-        content.text_value
-      end
-      
-      def inspect
-        "Data: \"" + value[0..100] + "\""
-      end
-    }
-  end
-  
-  rule text
-    ([^\n])+ {
-      def value
-        text_value
-      end
-      
-      def inspect
-        "Line: " + value
-      end
-    }
-  end
-    
-  rule LF
-    [\n] {
-      def data_type
-        nil
-      end
-      
-      def value
-        ""
-      end
-      
-      def inspect
-        value
-      end
-    }
-  end
-  
-  rule whitespace
-    [\t ]
-  end
-  
-  rule contact_marker
-    "#" {
-      def value
-        nil
-      end
-      
-      def inspect
-        "#"
-      end
-    }
-  end
-  
-  rule item_marker
-    "-" {
-      def value
-        nil
-      end
-      
-      def inspect
-        "-"
-      end
-    }
-  end
-  
-  rule section_marker
-    "=" {
-      def value
-        nil
-      end
-      
-      def inspect
-        "="
-      end
-    }
-  end
-  
-  rule period_marker
-    "+" {
-      def value
-        nil
-      end
-      
-      def inspect
-        "+"
-      end
-    }
-  end
-  
-  rule period_detail_marker
-    ">" {
-      def value
-        nil
-      end
-      
-      def inspect
-        ">"
-      end
-    }
-  end
-  
-  rule para_marker
-    "---" {
-      def value
-        nil
-      end
-      
-      def inspect
-        "---"
-      end
-    }
-  end
-  
-end
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Organization: " + value
+        end
+      }
+    end
+
+    rule period_loc
+      period_detail_marker "L" whitespace content:text LF+ {
+        def data_type
+          :period_location
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Location: " + value
+        end
+      }
+    end
+
+    rule period_dates
+      period_detail_marker "D" whitespace content:text LF+ {
+        def data_type
+          :period_dates
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Dates: " + value
+        end
+      }
+    end
+
+    rule contact_data
+      contact_name / contact_telephone / contact_email / contact_address / 
+      contact_url / contact_detail
+    end
+
+    rule contact_url
+      contact_marker "U" whitespace content:text LF+ {
+        def data_type
+          :contact_url
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Contact URL: " + value
+        end
+      }
+    end
+
+    rule contact_address
+      contact_marker "A" whitespace content:text LF+ {
+        def data_type
+          :contact_address
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Contact address: " + value
+        end
+      }
+    end
+
+    rule contact_telephone
+      contact_marker "T" whitespace content:text LF+ {
+        def data_type
+          :contact_telephone
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Contact telephone: " + value
+        end
+      }
+    end
+
+    rule contact_email
+      contact_marker "E" whitespace content:text LF+ {
+        def data_type
+          :contact_email
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Contact e-mail: " + value
+        end
+      }
+    end
+
+    rule contact_telephone
+      contact_marker "T" whitespace content:text LF+ {
+        def data_type
+          :contact_telephone
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Contact telephone: " + value
+        end
+      }
+    end
+
+    rule contact_name
+      contact_marker "N" whitespace content:text LF+ {
+        def data_type
+          :contact_name
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Contact name: " + value
+        end
+      }
+    end
+
+    rule item
+      item_marker whitespace content:(item_data+) {
+        def data_type
+          :item
+        end
+
+        def value
+          content.text_value.gsub("\n", ' ').gsub("\t", ' ').squeeze(" ").strip
+        end
+
+        def inspect
+          "Item: " + value[0..100]
+        end
+      }
+    end
+
+    rule item_data
+      continuation content:text LF+ {
+        def inspect
+          content.text_value
+        end
+      }
+    end
+
+    rule continuation
+      [^-=>#+\n]
+    end
+
+    rule period_detail
+      period_detail_marker whitespace content:text LF+ {
+        def data_type
+          :period_detail
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Detail: " + value
+        end
+      }
+    end
+
+    rule period
+      period_marker whitespace content:text LF {
+        def data_type
+          :period
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Period: " + value
+        end
+      }
+    end
+
+    rule para
+      para_marker LF
+      content:(!("---") text LF)*
+      para_marker LF+ {
+        def data_type
+          :paragraph
+        end
+
+        def value
+          content.text_value.gsub(/\n/, ' ').squeeze(" ").strip
+        end
+
+        def inspect
+          "Paragraph: " + value[0..100]
+        end
+      }
+    end
+
+    rule section
+      section_marker whitespace content:text LF+ {
+        def data_type
+          :section
+        end
+
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Section: " + elements[2].text_value
+        end
+      }
+    end
+
+    rule contact_detail
+      contact_marker whitespace content:text LF {
+        def data_type
+          :contact_detail
+        end
+        def value
+          content.text_value.squeeze(" ").strip
+        end
+
+        def inspect
+          "Contact detail: " + value
+        end
+      }
+    end
+
+    rule data
+      content:(text) LF {
+        def data_type
+          :untyped
+        end
+
+        def value
+          content.text_value
+        end
+
+        def inspect
+          "Data: \"" + value[0..100] + "\""
+        end
+      }
+    end
+
+    rule text
+      ([^\n])+ {
+        def value
+          text_value
+        end
+
+        def inspect
+          "Line: " + value
+        end
+      }
+    end
+
+    rule LF
+      [\n] {
+        def data_type
+          nil
+        end
+
+        def value
+          ""
+        end
+
+        def inspect
+          value
+        end
+      }
+    end
+
+    rule whitespace
+      [\t ]
+    end
+
+    rule contact_marker
+      "#" {
+        def value
+          nil
+        end
+
+        def inspect
+          "#"
+        end
+      }
+    end
+
+    rule item_marker
+      "-" {
+        def value
+          nil
+        end
+
+        def inspect
+          "-"
+        end
+      }
+    end
+
+    rule section_marker
+      "=" {
+        def value
+          nil
+        end
+
+        def inspect
+          "="
+        end
+      }
+    end
+
+    rule period_marker
+      "+" {
+        def value
+          nil
+        end
+
+        def inspect
+          "+"
+        end
+      }
+    end
+
+    rule period_detail_marker
+      ">" {
+        def value
+          nil
+        end
+
+        def inspect
+          ">"
+        end
+      }
+    end
+
+    rule para_marker
+      "---" {
+        def value
+          nil
+        end
+
+        def inspect
+          "---"
+        end
+      }
+    end
+
+  end # grammar ResumeGrammar
+end # module ResumeTools

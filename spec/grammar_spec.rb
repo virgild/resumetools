@@ -6,12 +6,12 @@ Treetop.load File.join(File.dirname(__FILE__), "../lib/resumetools/grammars/resu
 describe "Resume Grammar" do
   before(:all) do
     resume_file = "sample.resume"
-    @parser = ResumeParser.new
+    @parser = ResumeTools::ResumeGrammarParser.new
     @resume_txt = File.read(File.join(File.dirname(__FILE__), "../examples/#{resume_file}"))
   end
   
   it "should have a parser" do
-    @parser.should be_instance_of(ResumeParser)
+    @parser.should be_instance_of(ResumeTools::ResumeGrammarParser)
   end
   
   describe "after parsing sample file" do

@@ -35,7 +35,7 @@ module ResumeTools
       
       # Builds a new Resume instance from text
       def from_text(text)
-        parser = ::ResumeParser.new
+        parser = ResumeTools::ResumeGrammarParser.new
         result = parser.parse(text)
         
         if result.nil?
