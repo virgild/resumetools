@@ -25,6 +25,7 @@ namespace :gem do
     s.add_runtime_dependency("prawn", ">= 0.5.1")
     s.add_runtime_dependency("treetop", ">= 1.3.0")
     s.add_runtime_dependency("json", ">=1.1.9")
+    s.add_runtime_dependency("uuidtools")
 
     s.require_path = "lib"
 
