@@ -24,7 +24,6 @@
 #++
 
 require "prawn"
-require "prawn/format"
 require "prawn/layout"
 require "prawn/measurement_extensions"
 require "extlib"
