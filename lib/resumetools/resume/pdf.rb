@@ -35,10 +35,10 @@ module ResumeTools
         :default => 9,
         :header => 14,
         :contact => 9,
-        :section => 10,
+        :section => 11,
         :para => 9,
         :item => 9,
-        :period => 12
+        :period => 10
       }
       DATE_FORMAT = "%B, %Y"
       
@@ -101,28 +101,26 @@ module ResumeTools
             end
             
             # Periods
-            section.periods.each do |period|
-              pdf.span(pdf.bounds.width - 10, :position => 10) do
+            section.periods.each do |period|              
+              pdf.pad_top(5) do
+                # Period title
+                pdf.pad_top(5) { pdf.text period.title, :style => :bold, :size => FONT_SIZES[:period] }
+                
+                # Period details
                 pdf.pad_top(5) do
-                  # Period title
-                  pdf.pad_top(5) { pdf.text period.title, :style => :bold, :size => FONT_SIZES[:period] }
-                  
-                  # Period details
-                  pdf.span(pdf.bounds.width - 10, :position => 10) do
-                    pdf.text(period.line, :size => FONT_SIZES[:default])
-                  end
-                  
-                  # Period items
-                  unless period.items.empty?
-                    pdf.table period.items.map { |item| [" •", item.text] },
-                      :font_size => FONT_SIZES[:item],
-                      :column_widths => { 0 => 20, 1 => 420 },
-                      :border_style => :none,
-                      :border_color => "ffffff",
-                      :vertical_padding => 4,
-                      :horizontal_padding => 0,
-                      :align => { 0 => :center, 1 => :left }
-                  end
+                  pdf.text(period.line, :size => FONT_SIZES[:default])
+                end
+                
+                # Period items
+                unless period.items.empty?
+                  pdf.table period.items.map { |item| [" •", item.text] },
+                    :font_size => FONT_SIZES[:item],
+                    :column_widths => { 0 => 20, 1 => 420 },
+                    :border_style => :none,
+                    :border_color => "ffffff",
+                    :vertical_padding => 4,
+                    :horizontal_padding => 0,
+                    :align => { 0 => :center, 1 => :left }
                 end
               end
             end
