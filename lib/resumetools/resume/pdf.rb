@@ -91,13 +91,13 @@ module ResumeTools
             # Section items
             unless section.items.empty?
               pdf.table section.items.map { |item| [" •", item.text] },
-                :font_size => FONT_SIZES[:item],
+                #:font_size => FONT_SIZES[:item],
                 :column_widths => { 0 => 20, 1 => 420 },
-                :border_style => :none,
-                :border_color => "ffffff",
-                :vertical_padding => 4,
-                :horizontal_padding => 0,
-                :align => { 0 => :left, 1 => :left }
+                #:border_style => :none,
+                #:border_color => "ffffff",
+                #:vertical_padding => 4,
+                #:horizontal_padding => 0,
+                #:align => { 0 => :left, 1 => :left }
             end
             
             # Periods
@@ -114,13 +114,13 @@ module ResumeTools
                 # Period items
                 unless period.items.empty?
                   pdf.table period.items.map { |item| [" •", item.text] },
-                    :font_size => FONT_SIZES[:item],
+                    #:font_size => FONT_SIZES[:item],
                     :column_widths => { 0 => 20, 1 => 420 },
-                    :border_style => :none,
-                    :border_color => "ffffff",
-                    :vertical_padding => 4,
-                    :horizontal_padding => 0,
-                    :align => { 0 => :center, 1 => :left }
+                    #:border_style => :none,
+                    #:border_color => "ffffff",
+                    #:vertical_padding => 4,
+                    #:horizontal_padding => 0,
+                    #:align => { 0 => :center, 1 => :left }
                 end
               end
             end
