@@ -1,5 +1,4 @@
-require "rake/gempackagetask"
-
+require 'rubygems/package_task'
 
 PKG_DISPLAY_NAME      = "resumetools"
 PKG_NAME              = PKG_DISPLAY_NAME.downcase
@@ -15,18 +14,15 @@ PKG_FILES = FileList[
   "examples/**/*",
   "lib/**/*",
   "spec/**/*",
-  "vendor/**/*",
   "tasks/**/*",
   "fonts/**/*",
   "[A-Z]*",
   "README.md",
   "Rakefile"
 ].exclude(/[_\.]git$/, 'TODO')
-WINDOWS = (RUBY_PLATFORM =~ /mswin|win32|mingw|bccwin|cygwin/) rescue false
-SUDO = WINDOWS ? '' : ('sudo' unless ENV['SUDOLESS'])
+
 
 namespace :gem do
-  
   # Gem specification
   GEM_SPEC = Gem::Specification.new do |s|
     unless s.respond_to?(:add_development_dependency)
@@ -42,37 +38,40 @@ namespace :gem do
     s.files = PKG_FILES.to_a
 
     s.has_rdoc = true
-    
-    s.required_ruby_version = ">= 1.8.6"
-    
-    s.add_development_dependency("rake", ">= 0.8.7")
-    s.add_development_dependency("rspec", ">= 1.2.8")
-   
-    s.add_runtime_dependency("extlib")
-    s.add_runtime_dependency("prawn", ">= 0.7.1")
-    s.add_runtime_dependency("treetop", ">= 1.3.0")
-    s.add_runtime_dependency("json_pure")
-    s.add_runtime_dependency("uuidtools")
+
+    s.required_ruby_version = ">= 2.0.0"
+
+    s.add_development_dependency("rake", ">= 10.4.0")
+    s.add_development_dependency("rspec", ">= 3.1.0")
+
+    s.add_runtime_dependency("extlib", ">= 0.9.16")
+    s.add_runtime_dependency("prawn", ">= 1.3.0")
+    s.add_runtime_dependency("treetop", ">= 1.5.3")
+    s.add_runtime_dependency("json_pure", ">= 1.8.2")
+    s.add_runtime_dependency("uuidtools", ">= 2.1.5")
 
     s.require_path = "lib"
 
     s.author = "Virgil Dimaguila"
     s.email = "virgil@roundysoft.com"
-    s.homepage = "http://codaset.com/virgil/resumetools"
+    s.homepage = "https://github.com/virgild/resumetools"
     s.rubyforge_project = "resumetools"
   end
 
-  Rake::GemPackageTask.new(GEM_SPEC) do |p|
-    p.gem_spec = GEM_SPEC
+
+  Gem::PackageTask.new(GEM_SPEC) do |pkg|
+    pkg.gem_spec = GEM_SPEC
   end
-  
-  
+
+
   # Generate gemspec
   desc "Generate gemspec file"
   task :gemspec do
+    puts "Generating resumetools.gemspec..."
     File.open(File.join(File.dirname(__FILE__), '..', 'resumetools.gemspec'), "w") do |f|
       f.write(GEM_SPEC.to_ruby)
     end
+    puts "...DONE."
   end
 
 
@@ -86,11 +85,9 @@ namespace :gem do
     `
     puts "...DONE"
   end
-  
+
   task :package => :clean_attributes
 end
 
 desc "Alias to gem:package"
 task "gem" => "gem:package"
-
-task "clobber" => ["gem:clobber_package"]

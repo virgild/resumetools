@@ -25,6 +25,6 @@
 
 unless defined? ResumeTools::VERSION
   module ResumeTools
-    VERSION = "0.2.7.6"
+    VERSION = "0.2.8"
   end
 end

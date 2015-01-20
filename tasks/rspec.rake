@@ -1,14 +1,14 @@
 namespace :spec do
   desc "Run all specs"
-  Spec::Rake::SpecTask.new(:normal) do |t|
-    t.spec_files = FileList['spec/**/*_spec.rb']
-    t.spec_opts = ["--colour", "--format", "specdoc"]
+  RSpec::Core::RakeTask.new(:normal) do |t|
+    t.pattern = FileList['spec/**/*_spec.rb']
+    t.rspec_opts = ["--colour", "--format", "documentation"]
   end
-  
+
   desc "Run specs with rcov"
-  Spec::Rake::SpecTask.new(:rcov) do |t|
-    t.spec_files = FileList['spec/**/*_spec.rb']
-    t.spec_opts = ["--colour", "--format", "specdoc"]
+  RSpec::Core::RakeTask.new(:rcov) do |t|
+    t.pattern = FileList['spec/**/*_spec.rb']
+    t.rspec_opts = ["--colour", "--format", "documentation"]
     t.rcov = true
   end
 end

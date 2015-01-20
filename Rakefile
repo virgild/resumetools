@@ -3,10 +3,12 @@ $:.unshift(lib_dir)
 $:.uniq!
 
 require 'rubygems'
+require 'bundler/setup'
+
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
-require 'spec/rake/spectask'
+require 'rdoc/task'
+require 'rspec/core/rake_task'
 
 require File.join(File.dirname(__FILE__), 'lib', 'resumetools', 'version')
 
