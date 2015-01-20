@@ -1,7 +1,7 @@
 ResumeTools
 ===========
 
-http://codaset.com/virgil/resumetools
+https://github.com/virgild/resumetools
 
 DESCRIPTION:
 ------------
@@ -75,7 +75,7 @@ CODE:
 The source code is available at:
 
     http://codaset.com/virgil/resumetools
-  
+
 To get the source code using git:
 
     $ git clone git://codaset.com/virgil/resumetools.git
@@ -95,7 +95,7 @@ Building a resume model
     myresume.address1 = "221 Relativity Circle"
     myresume.address2 = "Princeton, NJ"
     myresume.email = "albert.einstein@science.org"
-    
+
     # Add a section, "Career Goals"
     myresume.create_section do |section|
       section.title = "Career Goals"
@@ -114,40 +114,40 @@ Example of a resume text format:
     #T (410) 555-1212
     #E seeker@nettcom.com
     #U http://nettcom.com/tseeker
-  
+
     = Qualifications Summary
     ---
-    Nine years of experience in designing, installing, and troubleshooting 
-    computing systems; a proven track record in identifying problems and 
+    Nine years of experience in designing, installing, and troubleshooting
+    computing systems; a proven track record in identifying problems and
     developing innovative solutions.
     ---
-    
+
     = Technical Skills
 
-    - PROGRAMMING: C, C++, Visual BASIC, FORTRAN, Pascal, SQL, OSF/Motif, 
+    - PROGRAMMING: C, C++, Visual BASIC, FORTRAN, Pascal, SQL, OSF/Motif,
       UNIX Shell Script (sh, ksh, csh), BASIC, Clipper, Algol 68, and 80X86 Assembler.
 
-    - OPERATING SYSTEMS: UNIX (bsd & SVr3/r4), MS Windows, MS DOS, MS Windows NT, 
+    - OPERATING SYSTEMS: UNIX (bsd & SVr3/r4), MS Windows, MS DOS, MS Windows NT,
       Solaris, HP-UX, Ultrix, AIX, VAX/VMS, and Macintosh System 7.
 
     = Professional Experience
-    
+
     + Systems Engineer
     >O Computer Engineering Corporation
     >L Los Angeles, CA
     >D 1993 to Present
-    - Provide systems engineering, software engineering, technical consulting, and 
-      marketing services as a member of the Systems Integration Division of a 
+    - Provide systems engineering, software engineering, technical consulting, and
+      marketing services as a member of the Systems Integration Division of a
       software engineering consulting company.
-  
+
     + Systems Analyst
     >O Business Consultants, Inc.
     >L Washington, DC
     >D 1990 to 1993
-    - Provided technical consulting services to the Smithsonian Institute's 
+    - Provided technical consulting services to the Smithsonian Institute's
       Information Technology Services Group, Amnesty International, and
       internal research and development initiatives.
-    
+
     = Education
 
     + Computer Systems Technology Program
@@ -155,19 +155,19 @@ Example of a resume text format:
 
     + BS, Mathematics/Computer Science
     >O University of California, Los Angeles (UCLA)
-    
+
     = Specialized Training
 
-    - Database Administration, Performance Tuning, and Benchmarking with 
+    - Database Administration, Performance Tuning, and Benchmarking with
       Oracle7; Oracle Corporation.
-    - Software Requirements Engineering and Management Course; 
+    - Software Requirements Engineering and Management Course;
       Computer Applications International Corporation.
     - X.400 Messaging and Allied Communications Procedures-123 Profile;
       ComTechnologies, Inc.
 
 See the `examples` directory for a sample resume text and its generated
 PDF document.
-    
+
 
 LIMITATIONS:
 ------------
