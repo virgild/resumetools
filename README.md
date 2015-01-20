@@ -3,6 +3,8 @@ ResumeTools
 
 https://github.com/virgild/resumetools
 
+![Travis-CI](https://travis-ci.org/virgild/resumetools.svg)
+
 DESCRIPTION:
 ------------
 
