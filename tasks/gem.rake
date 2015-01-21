@@ -54,7 +54,7 @@ namespace :gem do
 
     s.author = "Virgil Dimaguila"
     s.email = "virgil@roundysoft.com"
-    s.homepage = "https://github.com/virgild/resumetools"
+    s.homepage = "http://virgild.github.io/resumetools"
     s.rubyforge_project = "resumetools"
   end
 

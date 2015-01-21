@@ -58,4 +58,22 @@ describe "Creating a resume from a text" do
     expect(@resume.sections[3].periods[0].dtstart).to eq "1993"
     expect(@resume.sections[3].periods[0].dtend).to eq "Present"
   end
+
+  describe "rendering to plain text" do
+    it "should render without errors" do
+      resume_text = @resume.render_plain_text
+    end
+  end
+
+  describe "rendering to JSON" do
+    it "should render without errors" do
+      resume_json = @resume.render_json
+    end
+  end
+
+  describe "rendering to PDF" do
+    it "should render without errors" do
+      pdf_data = @resume.render_pdf
+    end
+  end
 end

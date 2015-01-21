@@ -4,6 +4,8 @@ ResumeTools
 https://github.com/virgild/resumetools
 
 ![Travis-CI](https://travis-ci.org/virgild/resumetools.svg)
+[![Code Climate](https://codeclimate.com/github/virgild/resumetools/badges/gpa.svg)](https://codeclimate.com/github/virgild/resumetools)
+[![Test Coverage](https://codeclimate.com/github/virgild/resumetools/badges/coverage.svg)](https://codeclimate.com/github/virgild/resumetools)
 
 DESCRIPTION:
 ------------
@@ -103,6 +105,15 @@ Building a resume model
       section.title = "Career Goals"
       section.para = "Work as a physicist and create a time machine"
     end
+
+    # Render to text
+    puts myresume.render_plain_text
+
+    # Render to JSON
+    myresume.render_json
+
+    # Render to PDF file (named 'resume.pdf')
+    File.open("resume.pdf", "w") { |file| file.write(myresume.render_pdf) }
 
 
 EXAMPLES:
