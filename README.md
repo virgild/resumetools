@@ -6,6 +6,7 @@ https://github.com/virgild/resumetools
 [![Travis-CI](https://travis-ci.org/virgild/resumetools.svg?branch=master)](https://travis-ci.org/virgild/resumetools)
 [![Code Climate](https://codeclimate.com/github/virgild/resumetools/badges/gpa.svg)](https://codeclimate.com/github/virgild/resumetools)
 [![Test Coverage](https://codeclimate.com/github/virgild/resumetools/badges/coverage.svg)](https://codeclimate.com/github/virgild/resumetools)
+[![security](https://hakiri.io/github/virgild/resumetools/master.svg)](https://hakiri.io/github/virgild/resumetools/master)
 
 DESCRIPTION:
 ------------
