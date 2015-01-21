@@ -44,12 +44,10 @@ namespace :gem do
     s.add_development_dependency("rake", ">= 10.4.0")
     s.add_development_dependency("rspec", ">= 3.1.0")
 
-    s.add_runtime_dependency("extlib", ">= 0.9.16")
+    s.add_runtime_dependency("activesupport", ">= 4.2.0")
     s.add_runtime_dependency("prawn", ">= 1.3.0")
     s.add_runtime_dependency("prawn-table", ">= 0.2.1")
     s.add_runtime_dependency("treetop", ">= 1.5.3")
-    s.add_runtime_dependency("json_pure", ">= 1.8.2")
-    s.add_runtime_dependency("uuidtools", ">= 2.1.5")
 
     s.require_path = "lib"
 
@@ -63,7 +61,6 @@ namespace :gem do
   Gem::PackageTask.new(GEM_SPEC) do |pkg|
     pkg.gem_spec = GEM_SPEC
   end
-
 
   # Generate gemspec
   desc "Generate gemspec file"
@@ -92,3 +89,4 @@ end
 
 desc "Alias to gem:package"
 task "gem" => "gem:package"
+task "gemspec" => "gem:gemspec"

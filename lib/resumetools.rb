@@ -23,12 +23,11 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #++
 
+require 'active_support'
+require 'active_support/core_ext'
 require "prawn"
 require "prawn/table"
 require "prawn/measurement_extensions"
-require "extlib"
-require "uuidtools"
-require "json"
 require "treetop"
 
 unless defined?(Text::Format)
