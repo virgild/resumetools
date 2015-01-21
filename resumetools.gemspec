@@ -22,11 +22,12 @@ Gem::Specification.new do |s|
   s.homepage = "http://virgild.github.io/resumetools"
   s.rubygems_version = "2.4.5"
   s.summary = "Resume generation and writing tools"
+  s.licenses = ["MIT"]
 
-  s.add_development_dependency(%q<rake>, [">= 10.4.0"])
-  s.add_development_dependency(%q<rspec>, [">= 3.1.0"])
-  s.add_runtime_dependency(%q<activesupport>, [">= 4.2.0"])
-  s.add_runtime_dependency(%q<prawn>, [">= 1.3.0"])
-  s.add_runtime_dependency(%q<prawn-table>, [">= 0.2.1"])
-  s.add_runtime_dependency(%q<treetop>, [">= 1.5.3"])
+  s.add_development_dependency('rake', '~> 10.4')
+  s.add_development_dependency('rspec', '~> 3.1.0')
+  s.add_runtime_dependency('activesupport', '~> 4.2.0')
+  s.add_runtime_dependency('prawn', '~> 1.3.0')
+  s.add_runtime_dependency('prawn-table', '~> 0.2.1')
+  s.add_runtime_dependency('treetop', '~> 1.5.3')
 end
