@@ -78,11 +78,7 @@ CODE:
 
 The source code is available at:
 
-    http://codaset.com/virgil/resumetools
-
-To get the source code using git:
-
-    $ git clone git://codaset.com/virgil/resumetools.git
+    https://github.com/virgild/resumetools
 
 
 USAGE:
