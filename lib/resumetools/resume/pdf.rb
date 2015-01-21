@@ -90,14 +90,18 @@ module ResumeTools
 
             # Section items
             unless section.items.empty?
-              pdf.table section.items.map { |item| [" •", item.text] },
-                # :font_size => FONT_SIZES[:item],
-                # :border_style => :none,
-                # :border_color => "ffffff",
-                # :vertical_padding => 4,
-                # :horizontal_padding => 0,
-                # :align => { 0 => :left, 1 => :left }
-                :column_widths => { 0 => 20, 1 => 420 }
+              pdf.table(section.items.map { |item| [" •", item.text] }, :cell_style => {
+                :borders => []
+              })
+              # , cell_style: {
+              #   :font_size => FONT_SIZES[:item],
+              #   :border_style => :none,
+              #   :border_color => "ffffff",
+              #   :vertical_padding => 4,
+              #   :horizontal_padding => 0,
+              #   :align => { 0 => :left, 1 => :left },
+              #   :column_widths => { 0 => 20, 1 => 420 }
+              # }
             end
 
             # Periods
@@ -113,14 +117,9 @@ module ResumeTools
 
                 # Period items
                 unless period.items.empty?
-                  pdf.table period.items.map { |item| [" •", item.text] },
-                    # :font_size => FONT_SIZES[:item],
-                    # :border_style => :none,
-                    # :border_color => "ffffff",
-                    # :vertical_padding => 4,
-                    # :horizontal_padding => 0,
-                    # :align => { 0 => :center, 1 => :left }
-                    :column_widths => { 0 => 20, 1 => 420 }
+                  pdf.table(period.items.map { |item| [" •", item.text] }, :cell_style => {
+                    :borders => []
+                  })
                 end
               end
             end
