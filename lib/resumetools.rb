@@ -24,6 +24,7 @@
 #++
 
 require "prawn"
+require "prawn/table"
 require "prawn/measurement_extensions"
 require "extlib"
 require "uuidtools"

@@ -46,6 +46,7 @@ namespace :gem do
 
     s.add_runtime_dependency("extlib", ">= 0.9.16")
     s.add_runtime_dependency("prawn", ">= 1.3.0")
+    s.add_runtime_dependency("prawn-table", ">= 0.2.1")
     s.add_runtime_dependency("treetop", ">= 1.5.3")
     s.add_runtime_dependency("json_pure", ">= 1.8.2")
     s.add_runtime_dependency("uuidtools", ">= 2.1.5")

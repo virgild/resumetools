@@ -1,5 +1,5 @@
 require 'rubygems'
-require File.join(File.dirname(__FILE__), '../lib/resumetools')
+require 'resumetools'
 
 samplefile = File.join(File.dirname(__FILE__), '../examples/sample.resume')
 resume = ResumeTools::Resume.from_text(File.read(samplefile))
