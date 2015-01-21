@@ -4,7 +4,7 @@ namespace :doc do
   desc "Generate RDoc documentation"
   Rake::RDocTask.new do |rdoc|
     rdoc.rdoc_dir = "doc"
-    rdoc.title    = "#{PKG_NAME}-#{PKG_VERSION} Documentation"
+    rdoc.title    = "resumetools #{ResumeTools::VERSION} Documentation"
     rdoc.options << "--line-numbers" << "--inline-source" <<
       "--accessor" << "cattr_accessor=object" << "--charset" << "utf-8"
     rdoc.template = "#{ENV["template"]}.rb" if ENV["template"]
