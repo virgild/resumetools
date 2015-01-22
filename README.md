@@ -7,6 +7,7 @@ https://github.com/virgild/resumetools
 [![Code Climate](https://codeclimate.com/github/virgild/resumetools/badges/gpa.svg)](https://codeclimate.com/github/virgild/resumetools)
 [![Test Coverage](https://codeclimate.com/github/virgild/resumetools/badges/coverage.svg)](https://codeclimate.com/github/virgild/resumetools)
 [![security](https://hakiri.io/github/virgild/resumetools/master.svg)](https://hakiri.io/github/virgild/resumetools/master)
+[![resumetools API Documentation](https://www.omniref.com/ruby/gems/resumetools.png)](https://www.omniref.com/ruby/gems/resumetools)
 
 DESCRIPTION:
 ------------
