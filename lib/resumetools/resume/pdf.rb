@@ -44,6 +44,8 @@ module ResumeTools
 
       # Render to PDF
       def render_pdf(opts={})
+        default_font = opts.delete(:default_font) || "SourceSansPro"
+
         pdf = Prawn::Document.new(
           :info => {},
           :top_margin => MARGINS[0].in,
@@ -58,11 +60,17 @@ module ResumeTools
             :bold => File.expand_path("VeraBd.ttf", FONT_DIR),
             :italic => File.expand_path("VeraIt.ttf", FONT_DIR),
             :bold_italic => File.expand_path("VeraBI.ttf", FONT_DIR)
+          },
+          "SourceSansPro" => {
+            :normal => File.expand_path("SourceSansPro-Regular.ttf", FONT_DIR),
+            :bold => File.expand_path("SourceSansPro-Semibold.ttf", FONT_DIR),
+            :italic => File.expand_path("SourceSansPro-It.ttf", FONT_DIR),
+            :bold_italic => File.expand_path("SourceSansPro-SemiboldIt.ttf", FONT_DIR)
           }
         )
 
         # Set default font
-        pdf.font("Helvetica", :style => :normal, :size => FONT_SIZES[:default], :kerning => true)
+        pdf.font(default_font, :style => :normal, :size => FONT_SIZES[:default], :kerning => true)
 
         # Name
         pdf.text self.full_name, :style => :bold, :size => FONT_SIZES[:header], :align => :center
