@@ -2,7 +2,7 @@ module ResumeTools
   grammar ResumeGrammar
 
     rule document
-      (contact_data / section / period / period_data / item / para / data)*
+      ((contact_data / section / period / period_data / item / para / data) / LF)*
     end
 
     rule period_data
@@ -58,7 +58,7 @@ module ResumeTools
     end
 
     rule contact_data
-      contact_name / contact_telephone / contact_email / contact_address /
+      contact_name / contact_telephone / contact_email / contact_address / 
       contact_url / contact_detail
     end
 

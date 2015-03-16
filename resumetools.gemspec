@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "resumetools"
-  s.version = "0.2.9.2"
+  s.version = "0.2.9.1"
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.required_ruby_version = Gem::Requirement.new(">= 2.0.0")
   s.require_paths = ["lib"]
