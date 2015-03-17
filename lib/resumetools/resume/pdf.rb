@@ -55,12 +55,6 @@ module ResumeTools
         )
 
         pdf.font_families.update(
-          "VeraSans" => {
-            :normal => File.expand_path("Vera.ttf", FONT_DIR),
-            :bold => File.expand_path("VeraBd.ttf", FONT_DIR),
-            :italic => File.expand_path("VeraIt.ttf", FONT_DIR),
-            :bold_italic => File.expand_path("VeraBI.ttf", FONT_DIR)
-          },
           "SourceSansPro" => {
             :normal => File.expand_path("SourceSansPro-Regular.ttf", FONT_DIR),
             :bold => File.expand_path("SourceSansPro-Semibold.ttf", FONT_DIR),
