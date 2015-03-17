@@ -1,3 +1,9 @@
+2015-03-16 (Version 1.0.0)
+* Removed Vera Sans font
+* Set Source Sans Pro as default font
+* Added horizontal line after the header
+* Requires Ruby 2.0
+
 2009-10-19 (Version 0.2.7.5)
 * Enclosed ResumeParser in module
 

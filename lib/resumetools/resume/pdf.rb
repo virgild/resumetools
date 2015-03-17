@@ -30,9 +30,9 @@ module ResumeTools
     module PDF
 
       FONT_DIR = File.join(File.dirname(__FILE__), '..', '..', 'fonts')
-      MARGINS = [1.0, 1.0, 1.0, 1.0]
+      MARGINS = [0.75, 1.0, 0.85, 1.0]
       FONT_SIZES = {
-        :default => 9,
+        :default => 10,
         :header => 14,
         :contact => 9,
         :section => 11,
@@ -67,18 +67,25 @@ module ResumeTools
         pdf.font(default_font, :style => :normal, :size => FONT_SIZES[:default], :kerning => true)
 
         # Name
-        pdf.text self.full_name, :style => :bold, :size => FONT_SIZES[:header], :align => :center
+        pdf.text(self.full_name, style: :bold, size: FONT_SIZES[:header], align: :center)
 
         # Contact info
         self.header_lines.each do |line|
-          pdf.text line, :align => :center
+          pdf.text(line, {
+            align: :center
+          })
         end
 
-        pdf.pad_bottom 20 do
+        pdf.pad_bottom 10 do
+        end
+
+        drawline(pdf)
+
+        pdf.pad_bottom 0 do
         end
 
         # Sections
-        self.sections.each do |section|
+        self.sections.each_with_index do |section, index|
           pdf.pad_top(20) do
             # Section title
             pdf.text section.title, :style => :bold, :size => FONT_SIZES[:section]
@@ -131,6 +138,13 @@ module ResumeTools
         pdf.render
       end
 
+      def drawline(pdf)
+        pdf.stroke do
+          pdf.line_width = 0.25
+          pdf.stroke_color("000000")
+          pdf.horizontal_rule
+        end
+      end
     end #module PDF
   end #module Renderer
 

@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
   s.name = "resumetools"
-  s.version = "0.2.9.1"
+  s.version = "1.0.0"
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.required_ruby_version = Gem::Requirement.new(">= 2.0.0")
   s.require_paths = ["lib"]
   s.authors = ["Virgil Dimaguila"]
-  s.date = "2015-02-27"
+  s.date = "2015-03-16"
   s.description = "Resume generation and writing tools\n"
   s.email = "virgil@roundysoft.com"
   s.files = Dir[
