@@ -34,10 +34,10 @@ module ResumeTools
       FONT_SIZES = {
         :default => 10,
         :header => 14,
-        :contact => 9,
+        :contact => 10,
         :section => 11,
-        :para => 9,
-        :item => 9,
+        :para => 10,
+        :item => 10,
         :period => 10
       }
       DATE_FORMAT = "%B, %Y"
