@@ -43,7 +43,7 @@ module ResumeTools
       DATE_FORMAT = "%B, %Y"
 
       # Render to PDF
-      def render_pdf(opts={})
+      def render_pdf(opts={}, &blk)
         default_font = opts.delete(:default_font) || "SourceSansPro"
 
         pdf = Prawn::Document.new(
@@ -133,6 +133,11 @@ module ResumeTools
               end
             end
           end
+        end
+
+        if blk
+          result = { pages: pdf.page_count }
+          yield result
         end
 
         pdf.render

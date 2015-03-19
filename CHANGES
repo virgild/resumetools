@@ -1,3 +1,6 @@
+2015-03-19 (Version 1.0.2)
+* Resume#render_pdf can now accept a block and yield a Hash with page count info.
+
 2015-03-15 (Version 1.0.1)
 * Adjusted default font size
 
