@@ -3,5 +3,4 @@ pkg/*
 doc/*
 coverage
 .bundle
-vendor/bundle
-Gemfile.lock
+vendor/bundle/

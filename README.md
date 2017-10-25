@@ -63,8 +63,9 @@ DEPENDENCIES:
 
 ResumeTools depends on the following Ruby gems:
 
-* extlib
+* activesupport
 * prawn
+* ptawn-table
 * treetop
 
 
