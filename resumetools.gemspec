@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.summary = "Resume generation and writing tools"
   s.licenses = ["MIT"]
 
-  s.add_development_dependency('rake', '~> 10.4')
+  s.add_development_dependency('rake', '~> 12.3')
   s.add_development_dependency('rspec', '~> 3.2')
   s.add_runtime_dependency('activesupport', '~> 5.1')
   s.add_runtime_dependency('prawn', '~> 2.2')
