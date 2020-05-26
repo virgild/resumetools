@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency('rake', '~> 10.4')
   s.add_development_dependency('rspec', '~> 3.2')
-  s.add_runtime_dependency('activesupport', '~> 5.1')
+  s.add_runtime_dependency('activesupport', '>= 5.1', '< 7.0')
   s.add_runtime_dependency('prawn', '~> 2.2')
   s.add_runtime_dependency('prawn-table', '~> 0.2.2')
   s.add_runtime_dependency('treetop', '~> 1.5.3')
